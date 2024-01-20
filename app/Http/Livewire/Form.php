@@ -14,8 +14,20 @@ class Form extends Component
     public string $phone;
     public string $email;
 
-    public function render()
+    public string $sale;
+    public string $minutes;
+    public string $key;
+    public string $type;
+
+    public function render(Request $request)
     {
+        $this->sale = $request->sale;
+        $this->minutes = $request->minutes;
+        $this->key = $request->key;
+        $this->type = $request->type;
+
+        Log::alert(__METHOD__, $request->toArray());
+
         return view('livewire.form');
     }
 
@@ -26,6 +38,10 @@ class Form extends Component
         Artisan::call('order:create', [
             'email' => $this->email,
             'phone' => $this->phone,
+            'sale'  => $this->sale,
+            'minutes' => $this->minutes,
+            'key'   => $this->key,
+            'type'  => $this->type,
         ]);
     }
 }
