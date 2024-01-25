@@ -99,11 +99,9 @@ class Form extends Component
 
         Log::alert(__METHOD__, [$response->json()]);
 
-        header("Location: ".$response->json()['data']['paymentUrl']);
+        if ($response->ok()) {
 
-//        if ($response->ok()) {
-//
-//            redirect($response->json()['data']['paymentUrl']);
-//        }
+            redirect($response->json()['data']['paymentUrl']);
+        }
     }
 }
