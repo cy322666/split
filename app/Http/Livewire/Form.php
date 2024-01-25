@@ -21,10 +21,10 @@ class Form extends Component
 
     public function render(Request $request)
     {
-        $this->sale = $request->sale;
-        $this->minutes = $request->minutes;
-        $this->key = $request->key;
-        $this->type = $request->type;
+        $this->sale = $request->sale ?? 0;
+        $this->minutes = $request->minutes ?? 0;
+        $this->key = $request->key ?? 0;
+        $this->type = $request->type ?? 0;
 
         Log::alert(__METHOD__, $request->toArray());
 

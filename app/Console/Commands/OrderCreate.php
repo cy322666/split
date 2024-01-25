@@ -14,7 +14,7 @@ class OrderCreate extends Command
      *
      * @var string
      */
-    protected $signature = 'order:create {phone} {email}';
+    protected $signature = 'order:create {phone} {email} {sale} {minutes} {key} {type}';
 
     /**
      * The console command description.
@@ -40,10 +40,15 @@ class OrderCreate extends Command
     {
         $phone = $this->argument('phone');
         $email = $this->argument('email');
+        $sale = $this->argument('sale');
+        $minutes = $this->argument('minutes');
+        $key = $this->argument('key');
+        $type = $this->argument('type');
 
         Log::alert(__METHOD__, [
-            $phone, $email
+            $phone, $email, $sale, $minutes, $key, $type
         ]);
+
         $response = Http::withHeaders([
             'X-Request-Id' => Uuid::uuid4()->toString(),
             'X-Request-Timeout' => 15000,
