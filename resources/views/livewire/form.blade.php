@@ -2,7 +2,9 @@
     <div class="d-flex align-items-center min-vh-100">
         <div class="mx-auto md-auto">
 
-                <form wire:submit.prevent="save" class="col-4 p-5 mb-2 bg-light mx-auto">
+                <form action="/form/send" method="POST" class="col-4 p-5 mb-2 bg-light mx-auto">
+                    @csrf <!-- {{ csrf_field() }} -->
+{{--                <form wire:submit.prevent="save" class="col-4 p-5 mb-2 bg-light mx-auto">--}}
                 <div>
                     @if (session()->has('message'))
                         <div class="alert alert-danger">
@@ -23,13 +25,13 @@
 
                 <div class="mb-4">
                     <div class="form-label-group">
-                        <input wire:model.live.debounce.1000000ms="email" type="text" class="form-control" placeholder="Email" required autofocus="">
+                        <input name="email" id="email" type="email" class="form-control" placeholder="Email" required autofocus="">
                     </div>
                 </div>
 
                 <div class="mb-4">
                     <div class="form-label-group">
-                        <input wire:model.live.debounce.1000000ms="phone" type="text" class="form-control" placeholder="Номер телефона" required>
+                        <input name="phone" id="phone" type="text" class="form-control" placeholder="Номер телефона" required>
                     </div>
                 </div>
                 <p class="text-sm-start mb-0"><small>Оплата в течение 2 месяцев:</small></p>
