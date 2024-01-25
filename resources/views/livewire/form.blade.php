@@ -2,7 +2,7 @@
     <div class="d-flex align-items-center min-vh-100">
         <div class="mx-auto md-auto">
 
-                <form action="/form/send" method="POST" class="col-4 p-5 mb-2 bg-light mx-auto">
+                <form action="form/send" method="POST" class="col-4 p-5 mb-2 bg-light mx-auto">
                     @csrf <!-- {{ csrf_field() }} -->
 {{--                <form wire:submit.prevent="save" class="col-4 p-5 mb-2 bg-light mx-auto">--}}
                 <div>
