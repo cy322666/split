@@ -33,6 +33,8 @@ class Form extends Component
 
     public function save(Request $request)
     {
+        Log::alert(__METHOD__);
+
         $response = Http::withHeaders([
             'X-Request-Id' => Uuid::uuid4()->toString(),
             'X-Request-Timeout' => 15000,
