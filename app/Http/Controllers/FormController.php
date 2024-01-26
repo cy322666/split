@@ -26,12 +26,12 @@ class FormController extends Controller
                 'items' => [
                     [
                         "description" => 'Какой то курс',
-                        "discountedUnitPrice" => 10000.00,
+                        "discountedUnitPrice" => $request->sale,
                         "productId" => Uuid::uuid4()->toString(),
                         "quantity" => [
-                            "available" => 10000.00,
+                            "available" => $request->sale,
                             "count" => 1,
-                            "label" => "Название (label)"
+                            "label" => $request->key,
                         ],
                         "receipt" => [
                             "agent" => [
@@ -42,7 +42,7 @@ class FormController extends Controller
                                 ],
                                 "phones" => [$request->phone]
                             ],
-                            "excise" => 10000.00,
+                            "excise" => $request->sale,
                             "markQuantity" => [
                                 'denominator' => 0,
                                 "numerator"   => 0,
@@ -54,10 +54,10 @@ class FormController extends Controller
                             "tax" => 1,
                             "title" => "title",
                         ],
-                        "subtotal" => 10000.00,
-                        "title" => "title total",
-                        "total" => 10000.00,
-                        "unitPrice" => 10000.00,
+                        "subtotal" => $request->sale,
+                        "title" => $request->key,
+                        "total" => $request->sale,
+                        "unitPrice" => $request->sale,
                     ],
                 ],
                 'total' => [
@@ -69,10 +69,10 @@ class FormController extends Controller
             //extensions
             'orderId' => Uuid::uuid4()->toString(),
             'purpose' =>'purpose',//TODO
-            'redirectUrls' => [
-                'onAbort' => 'https://google.com',
-                'onError' => 'https://google.com',
-                'onSuccess' => 'https://google.com',
+            'redirectUrls'  => [
+                'onAbort'   => 'https://centriym.ru',
+                'onError'   => 'https://centriym.ru',
+                'onSuccess' => 'https://centriym.ru',
             ],
             'ttl' => 1800,
         ]);

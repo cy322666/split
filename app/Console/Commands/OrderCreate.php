@@ -44,7 +44,5 @@ class OrderCreate extends Command
         $minutes = $this->argument('minutes');
         $key = $this->argument('key');
         $type = $this->argument('type');
-
-
     }
 }
