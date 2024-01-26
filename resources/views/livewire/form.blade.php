@@ -23,6 +23,9 @@
                         Если не желаете ее оплачивать, пожалуйста, выбирайте вариант с оплатой в течение 2 месяцев.</small></p>
                 </div>
 
+                <input type="hidden" id="sale" value="{{ request()->sale }}">
+                <input type="hidden" id="key" value="{{ request()->key }}">
+
                 <div class="mb-4">
                     <div class="form-label-group">
                         <input name="email" id="email" type="email" class="form-control" placeholder="Email" required autofocus="">
