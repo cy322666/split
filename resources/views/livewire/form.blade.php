@@ -23,8 +23,8 @@
                         Если не желаете ее оплачивать, пожалуйста, выбирайте вариант с оплатой в течение 2 месяцев.</small></p>
                 </div>
 
-                <input type="hidden" id="sale" value="{{ request()->sale }}">
-                <input type="hidden" id="key" value="{{ request()->key }}">
+                <input type="hidden" name="sale" value={{request('sale')}}>
+                <input type="hidden" name="key" value={{request('key')}}>
 
                 <div class="mb-4">
                     <div class="form-label-group">
