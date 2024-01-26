@@ -61,8 +61,8 @@ class FormController extends Controller
                     ],
                 ],
                 'total' => [
-                    'amount' => 10000.00,
-                    'label'  => 'final total label'
+                    'amount' => $request->sale,
+                    'label'  => $request->key,
                 ],
             ],
             'currencyCode' => 'RUB',
