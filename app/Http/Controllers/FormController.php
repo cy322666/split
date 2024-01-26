@@ -10,7 +10,7 @@ use Ramsey\Uuid\Uuid;
 class FormController extends Controller
 {
     public function send(Request $request)
-    {dd($request->toArray());
+    {
         Log::alert(__METHOD__, $request->toArray());
 
         $response = Http::withHeaders([
