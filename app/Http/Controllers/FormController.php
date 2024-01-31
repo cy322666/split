@@ -13,6 +13,8 @@ class FormController extends Controller
     {
         Log::alert(__METHOD__, $request->toArray());
 
+        $orderId = Uuid::uuid4()->toString();
+
         $response = Http::withHeaders([
             'X-Request-Id' => Uuid::uuid4()->toString(),
             'X-Request-Timeout' => 15000,
@@ -67,12 +69,12 @@ class FormController extends Controller
             ],
             'currencyCode' => 'RUB',
             //extensions
-            'orderId' => Uuid::uuid4()->toString(),
+            'orderId' => $orderId,
             'purpose' =>'purpose',//TODO
             'redirectUrls'  => [
-                'onAbort'   => 'https://centriym.ru',
-                'onError'   => 'https://centriym.ru',
-                'onSuccess' => 'https://centriym.ru',
+                'onAbort'   => 'https://centriym.com',
+                'onError'   => 'https://centriym.com',
+                'onSuccess' => 'https://centriym.com',
             ],
             'ttl' => 1800,
         ]);
@@ -80,6 +82,17 @@ class FormController extends Controller
         Log::alert(__METHOD__, [$response->json()]);
 
         if ($response->ok()) {
+
+            try {
+                Http::post('https://tglk.ru/in/4By9VuEJxUpBby2l', [
+                    'order_id' => $orderId,
+                    'phone' => $request->phone,
+                    'email' => $request->email,
+                ]);
+            } catch (\Throwable $exception) {
+
+                Log::error(__METHOD__.' '.$exception->getMessage());
+            }
 
             return redirect($response->json()['data']['paymentUrl']);
         }
