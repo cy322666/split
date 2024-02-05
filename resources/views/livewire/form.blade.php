@@ -61,7 +61,7 @@
                 </small></p>
                 <div class="form-row text-center mb-3">
 {{--                    <div class="col-12">--}}
-                        <button class="form-row text-center btn btn-sl btn-primary btn-block" type="submit">Оплатить частями</button>
+                        <button class="form-row text-center btn btn-sl btn-primary btn-block" style="width: 300px; background-color: rgb(255, 195, 20); color:black; border:rgb(255, 195, 20) solid 3px;" type="submit">Оплатить частями</button>
                 </div>
 
                 <div class="form-row text-center mb-0">
