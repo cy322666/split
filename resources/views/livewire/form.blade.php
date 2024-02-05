@@ -3,7 +3,7 @@
         <div class="mx-auto md-auto">
 
 {{--            {{ dd() }}--}}
-                <form action="form/send?{{request()->getQueryString()}}" method="POST" class="col-4 p-5 mb-2 bg-light mx-auto">
+                <form action="form/send?{{request()->getQueryString()}}" method="POST" class="p-5 mb-2 bg-light mx-auto" style="width: 400px">
                     @csrf <!-- {{ csrf_field() }} -->
 {{--                <form wire:submit.prevent="save" class="col-4 p-5 mb-2 bg-light mx-auto">--}}
                 <div>
