@@ -3,7 +3,7 @@
         <div class="mx-auto md-auto">
             <style>
                 p {
-                    font-size: 11pt; /* Размер шрифта в пунктах */
+                    font-size: 9pt; /* Размер шрифта в пунктах */
                 }
             </style>
 
