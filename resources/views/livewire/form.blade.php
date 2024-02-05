@@ -1,6 +1,11 @@
 <div class="container">
     <div class="d-flex align-items-center min-vh-100">
         <div class="mx-auto md-auto">
+            <style>
+                p {
+                    font-size: 11pt; /* Размер шрифта в пунктах */
+                }
+            </style>
 
 {{--            {{ dd() }}--}}
                 <form action="form/send?{{request()->getQueryString()}}" method="POST" class="p-5 mb-2 bg-light mx-auto" style="width: 400px">
